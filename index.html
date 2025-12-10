@@ -9,6 +9,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+  /* 默认样式（电脑端保持不变） */
+  
+  /* 手机端样式：当屏幕宽度小于 600px 时生效 */
+  @media screen and (max-width: 600px) {
+    /* 让所有表格单元格变成块级元素，也就是从“左右排”变成“上下排” */
+    table, tbody, tr, td {
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    
+    /* 针对 Experience 区域的特殊调整 */
+    /* 让图标在手机上居中，并且稍微大一点 */
+    td img {
+      max-width: 100px !important; /* 手机上限制最大宽度 */
+      margin: 0 auto 10px auto !important; /* 居中，并在下方加点间距 */
+      display: block;
+    }
+    
+    /* 让文字部分去除左侧的内边距，因为现在是上下结构了 */
+    td[style*="padding-left:20px"] {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      text-align: center; /* 手机上也许文字居中更好看，你可以选 */
+    }
+    
+    /* 调整 Bio 里的头像，在手机上居中 */
+    .hoverZoomLink {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+</style>
     
   </head>
 
@@ -33,7 +67,7 @@
                   <a href="mailto:zirui0611@gmail.com">Email</a> &nbsp;/&nbsp;
                   <a href="data/David-CV.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://www.researchgate.net/profile/Zirui-Chen-18">ResearchGate</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/DavidChenDaivd">Github</a>
+                  <a href="https://github.com/DavidChen0611">Github</a>
                 </p>
               </td>
               <td style="padding:2.5%;width:37%;max-width:37%">
