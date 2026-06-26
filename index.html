@@ -11,68 +11,161 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
    <style>
-  /* 默认样式（电脑端保持不变） */
-  
-  /* 手机端样式：当屏幕宽度小于 600px 时生效 */
+  .writing-title {
+    display: block;
+    line-height: 1.35;
+  }
+
+  .writing-note {
+    display: block;
+    margin-top: 3px;
+    font-size: small;
+    line-height: 1.35;
+    color: #333;
+  }
+
+  .misc-table p {
+    line-height: 1.45;
+    margin: 0 0 12px 0;
+  }
+
+  .news-year-mobile {
+    display: none;
+  }
+
   @media screen and (max-width: 600px) {
-    /* 1. 让所有表格单元格变成垂直堆叠，并强制居中 */
-    table, tbody, tr, td {
-      display: block !important;
-      width: 100% !important;
-      max-width: 100% !important; /* 关键修复：允许单元格占满全屏宽度 */
-      height: auto !important;      /* 防止高度被锁定 */
-      box-sizing: border-box;
-      text-align: center !important;
+    body {
+      margin: 0;
     }
-    
-    /* 2. 这里的代码专门修复 Bio 区域 */
-    
-    /* 修复名字 */
+
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      text-align: left !important;
+    }
+
+    td {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    p {
+      line-height: 1.45;
+    }
+
+    .intro-table td,
+    .news-table td {
+      padding: 8px 20px !important;
+    }
+
     .name {
-      font-size: 36px !important;
+      font-size: 32px !important;
       font-weight: 700 !important;
-      margin-top: 30px !important;
-      margin-bottom: 20px !important;
+      margin-top: 20px !important;
+      margin-bottom: 16px !important;
       display: block !important;
     }
 
-    /* 修复头像：放大，居中 */
     .hoverZoomLink {
-      width: 60% !important;
-      max-width: 250px !important;
+      width: 70% !important;
+      max-width: 220px !important;
       height: auto !important;
-      margin: 0 auto 30px auto !important; /* auto 负责左右居中 */
-      display: block !important; /* 强制块级显示 */
+      margin: 0 auto 24px auto !important;
+      display: block !important;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
-    
-    /* 额外保险：确保包裹图片的 a 标签也是块级的，防止它作为行内元素干扰居中 */
-    td > a {
-        display: block;
-        width: 100%;
+
+    .intro-table td:last-child {
+      text-align: center !important;
     }
 
-    /* 调整 Bio 文字的边距 */
-    td[style*="width:63%"] {
-      padding: 0 20px !important;
-    }
-
-    /* 3. 针对 Experience 区域的调整 */
-    img[src*="WKU"] {
-      max-width: 100px !important;
-      margin: 20px auto 10px auto !important;
+    img[src*="WKU"],
+    img[src*="Chiba"],
+    img[src*="ZCMU"] {
+      max-width: 90px !important;
+      margin: 12px auto !important;
       display: block;
     }
-    
-    td[style*="padding-left:20px"] {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
+
+    img[src*="writing-"] {
+      width: 100% !important;
+      max-width: 280px !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      margin: 8px 0 !important;
+      display: block;
     }
-    
-    br {
-        content: " ";
-        display: block;
-        margin: 5px 0;
+
+    .timeline-table tr,
+    .timeline-table td,
+    .writing-table tr,
+    .writing-table td {
+      display: block;
+      width: 100% !important;
+      text-align: left !important;
+    }
+
+    .timeline-table td,
+    .writing-table td {
+      padding: 4px 20px 10px 20px !important;
+    }
+
+    .timeline-table img,
+    .writing-table img {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .timeline-table td:first-child {
+      display: none !important;
+    }
+
+    .timeline-table span[style*="float:right"] {
+      float: none !important;
+      display: block !important;
+      margin-bottom: 4px;
+      text-align: left !important;
+    }
+
+    .timeline-table td:nth-child(2) {
+      text-align: left !important;
+    }
+
+    .timeline-table strong,
+    .timeline-table div {
+      display: block;
+      max-width: 100%;
+    }
+
+    .timeline-table td:nth-child(2) > a {
+      display: block;
+      max-width: 100%;
+    }
+
+    .timeline-table .papertitle {
+      display: block;
+      line-height: 1.25;
+    }
+
+    .news-year-mobile {
+      display: block;
+      margin-bottom: 4px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .news-table td:last-child {
+      display: none;
+    }
+
+    .writing-title {
+      font-size: 14px;
     }
   }
 </style>
@@ -84,14 +177,14 @@
       <tr style="padding:0px">
         <td style="padding:0px">
           
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table class="intro-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
                   Zirui Chen
                 </p>
                 <p>
-                  I am a Research Student at <a href="https://www.chiba-u.ac.jp/e/">Chiba University</a>, where I am supervised by <a href="https://researchmap.jp/yosuke1126">Prof. Yosuke Kurashima</a>.
+                  I am a first-year Master's student in Medicine at the Graduate School of Medical and Pharmaceutical Sciences, <a href="https://www.chiba-u.ac.jp/e/">Chiba University</a>, where I am supervised by <a href="https://researchmap.jp/yosuke1126">Prof. Yosuke Kurashima</a>.
                   My research interests lie in immunology and mucosal biology. Currently, I am investigating the role of mast cells in allergic progression, aiming to identify novel therapeutic targets for eradicating allergies.
                   <br><br>
                   Previously, I obtained my Bachelor of Medicine (Clinical Medicine) from <a href="https://www.zcmu.edu.cn/">Zhejiang Chinese Medical University</a> in 2025.
@@ -100,41 +193,58 @@
                   <a href="mailto:zirui0611@gmail.com">Email</a> &nbsp;/&nbsp;
                   <a href="data/David-CV.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://www.researchgate.net/profile/Zirui-Chen-18">ResearchGate</a> &nbsp;/&nbsp;
+                  <a href="https://orcid.org/0009-0002-4290-916X">ORCID</a> &nbsp;/&nbsp;
                   <a href="https://github.com/DavidChen0611">Github</a>
                 </p>
               </td>
               <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/Davidchen.jpg"><img style="width:100%; max-width:160; object-fit: cover; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);" alt="profile photo" src="images/Davidchen.jpg" class="hoverZoomLink"></a>
+                <a href="images/Davidchen.jpg"><img style="width:100%; max-width:160px; object-fit: cover; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);" alt="profile photo" src="images/Davidchen.jpg" class="hoverZoomLink"></a>
+              </td>
             </tr>
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Experience</h2>
+                <h2>Education</h2>
               </td>
             </tr>
           </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <table class="timeline-table education-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-              <td style="padding:10px 20px 10px 20px; width:15%; vertical-align:middle; text-align:center;">
-                <img src='images/WKU-icon.png' style="width:100%; max-width:120px; object-fit: contain;">
+              <td style="padding:10px 10px 10px 18px; width:12%; vertical-align:middle; text-align:center;">
+                <img src="images/Chiba-icon.png" alt="Chiba University logo" style="width:100%; max-width:150px; object-fit: contain;">
               </td>
-              
-              <td style="padding:20px; width:85%; vertical-align:middle">
-                <span style="float:right; font-style: italic; color: #666;">July 2025 – Sept 2025</span>
-                <a href="https://www.wku.edu.cn/">
-                  <span class="papertitle" style="font-size: 1.1em;">Wenzhou-Kean University</span>
+
+              <td style="padding:20px 20px 20px 12px; width:88%; vertical-align:middle">
+                <span style="float:right; font-style: italic; color: #666;">Oct. 2025 - Present</span>
+                <a href="https://www.chiba-u.ac.jp/e/">
+                  <span class="papertitle" style="font-size: 1.1em;">Chiba University</span>
                 </a>
                 <br>
-                <strong style="font-size: 1em;">Research Intern</strong>
+                <strong style="font-size: 1em;">M.S. student in Medicine</strong>
                 <br>
                 <div style="margin-top: 4px; font-size: small; color: #333;">
-                  Wenzhou Municipal Key Laboratory for Applied Biomedical and Biopharmaceutical Informatics
+                  Graduate School of Medical and Pharmaceutical Sciences
                 </div>
-                <div style="margin-top: 4px; font-size: small;">
-                  Hosts: <a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&hl=en">Xuechen Tian</a>, <a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 10px 10px 18px; width:12%; vertical-align:middle; text-align:center;">
+                <img src="images/ZCMU-icon.jpg" alt="Zhejiang Chinese Medical University logo" style="width:100%; max-width:120px; object-fit: contain;">
+              </td>
+
+              <td style="padding:20px 20px 20px 12px; width:88%; vertical-align:middle">
+                <span style="float:right; font-style: italic; color: #666;">Oct. 2020 - Jun. 2025</span>
+                <a href="https://www.zcmu.edu.cn/">
+                  <span class="papertitle" style="font-size: 1.1em;">Zhejiang Chinese Medical University</span>
+                </a>
+                <br>
+                <strong style="font-size: 1em;">B.Med. in Clinical Medicine</strong>
+                <br>
+                <div style="margin-top: 4px; font-size: small; color: #333;">
+                  GPA: 3.8/4.0
                 </div>
               </td>
             </tr>
@@ -152,19 +262,167 @@
               </td>
             </tr>
           </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            </tbody></table>
 
-          <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Experience</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          
+          <table class="timeline-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-              <td>
+              <td style="padding:10px 10px 10px 18px; width:15%; vertical-align:middle; text-align:center;">
+                <img src="images/WKU-icon.png" alt="Wenzhou-Kean University logo" style="width:100%; max-width:120px; object-fit: contain;">
+              </td>
+              
+              <td style="padding:20px; width:85%; vertical-align:middle">
+                <span style="float:right; font-style: italic; color: #666;">July 2025 – Sept. 2025</span>
+                <a href="https://www.wku.edu.cn/">
+                  <span class="papertitle" style="font-size: 1.1em;">Wenzhou-Kean University</span>
+                </a>
+                <br>
+                <strong style="font-size: 1em;">Research Intern</strong>
+                <br>
+                <div style="margin-top: 4px; font-size: small; color: #333;">
+                  Wenzhou Municipal Key Laboratory for Applied Biomedical and Biopharmaceutical Informatics
+                </div>
+                <div style="margin-top: 4px; font-size: small;">
+                  Hosts: <a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&amp;hl=en">Xuechen Tian</a>, <a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>
+                </div>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>News</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table class="news-table" style="width:100%;border:0px;border-spacing:0px 8px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px 20px; width:85%; vertical-align:top">
+                <span class="news-year-mobile">2026</span>
+                Began intensive laboratory research training at Chiba University, working on animal experiments, sample processing, FACS/FCS analysis, ELISA, histology, data analysis, and group meeting presentations.
+              </td>
+              <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
+                2026
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:85%; vertical-align:top">
+                <span class="news-year-mobile">2025</span>
+                Graduated with a B.Med. in Clinical Medicine from Zhejiang Chinese Medical University and transitioned toward graduate research in Japan.
+              </td>
+              <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
+                2025
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:85%; vertical-align:top">
+                <span class="news-year-mobile">2024</span>
+                Completed advanced clinical coursework and internship-related training while preparing for graduate study and biomedical research in Japan.
+              </td>
+              <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
+                2024
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:85%; vertical-align:top">
+                <span class="news-year-mobile">2020</span>
+                Entered Zhejiang Chinese Medical University and began undergraduate training in Clinical Medicine.
+              </td>
+              <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
+                2020
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Selected Science Writing</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table class="writing-table" style="width:100%;border:0px;border-spacing:0px 12px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td colspan="2" style="padding:0px 20px; width:100%; vertical-align:middle">
+                <p>
+                  I have written more than one hundred Chinese popular science articles, totaling over one million words, for my WeChat public account <strong>Cell Kingdom</strong>, now renamed <strong>Beyond Time</strong>.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/3EuGA4yqSn9db2xAe4wVxA"><img src="images/writing-85.jpg" alt="IL-11 aging article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/3EuGA4yqSn9db2xAe4wVxA"><span class="papertitle writing-title">《Nature》：促炎蛋白IL-11或为延缓衰老全新靶点，可显著延寿四分之一！</span></a>
+                <span class="writing-note">Nature: IL-11 as a new target for slowing aging, with lifespan extended by nearly one quarter.</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/4_oD-agy9dQkS-9Oajcxbg"><img src="images/writing-46.jpg" alt="CiPSC-islets article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/4_oD-agy9dQkS-9Oajcxbg"><span class="papertitle writing-title">世界首例！《Cell》：北大和南开大学团队开发CiPSC-islets移植，使患者成功脱离胰岛素，血糖恢复稳定</span></a>
+                <span class="writing-note">Cell: CiPSC-islet transplantation helps a patient discontinue insulin and restore stable blood glucose.</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/qVFUwwPjnXOr9KBHFCPQlA"><img src="images/writing-29.jpg" alt="Stem cell tracking article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/qVFUwwPjnXOr9KBHFCPQlA"><span class="papertitle writing-title">历史首次！科学家追踪移植后的干细胞30年！《Nature》：重建患者血液时基本不发生基因突变，且越早接受移植，存活干细胞越多</span></a>
+                <span class="writing-note">Nature: scientists track transplanted stem cells for 30 years and examine mutation risk after blood reconstruction.</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/0x4PS-Ss_py6i7AsrWcBWA"><img src="images/writing-16.jpg" alt="iPSC CAR-T article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/0x4PS-Ss_py6i7AsrWcBWA"><span class="papertitle writing-title">iPSC来源CAR-T，抗肿瘤Buff翻倍！《StemCell》：哈佛大学通过抑制G9a/GLP，使T细胞更好斗，且生存能力强</span></a>
+                <span class="writing-note">Stem Cell: iPSC-derived CAR-T cells gain stronger antitumor activity after G9a/GLP inhibition.</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/q0gKM8Agzcv4roqftIbM_g"><img src="images/writing-23.jpg" alt="Lancet diabetes article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="http://mp.weixin.qq.com/s/q0gKM8Agzcv4roqftIbM_g"><span class="papertitle writing-title">《柳叶刀》：每10人就有1个糖尿病，超6成未接受任何治疗！过去二十年全球糖尿病发病率翻倍，治疗不平等现象加剧</span></a>
+                <span class="writing-note">The Lancet: global diabetes prevalence has doubled over two decades, with major treatment gaps.</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0px 20px; width:25%; vertical-align:middle">
+                <a href="https://mp.weixin.qq.com/s/mejB9cePkSiWuKtq9LK_Pg"><img src="images/writing-60.jpg" alt="Exosome detection article cover" style="width:160px; height:90px; object-fit: cover; border-radius:5px;"></a>
+              </td>
+              <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
+                <a href="https://mp.weixin.qq.com/s/mejB9cePkSiWuKtq9LK_Pg"><span class="papertitle writing-title">《Nature》子刊：新型全自动外泌体检测技术，实现脑癌血检仅需 2 美元， 1 小时内出结果！</span></a>
+                <span class="writing-note">Nature portfolio: an automated exosome test could enable low-cost, one-hour blood testing for brain cancer.</span>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%; margin:0 auto; border:0; border-spacing:0;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
                 <h2>Miscellanea</h2>
               </td>
             </tr>
           </tbody></table>
           
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table class="misc-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px 20px 20px 20px; width:100%; vertical-align:middle">
                 <p>
@@ -172,9 +430,6 @@
                 </p>
                 <p>
                   In my free time, I find relaxation and inspiration through video games, where I appreciate narrative world-building and the interactive dimension of storytelling. 
-                </p>
-                <p>
-                  During my undergraduate years, I dedicated myself not only to clinical studies but also to <strong>science communication</strong>. As a part-time medical editor, I authored more than one hundred popular science articles, totaling over one million words. This experience strengthened my ability to translate complex medical knowledge into accessible and engaging content for the public. 
                 </p>
                 <p>
                   Outside of academics, I take joy in cycling, driving—especially observing innovations in new energy vehicles—and occasionally experimenting with cooking. These pursuits balance the intensity of clinical work and remind me to remain curious about life beyond the laboratory.
@@ -188,7 +443,7 @@
               <td style="padding:0px">
                 <br>
                 <p style="text-align:center;font-size:small;">
-                  Last updated Dec. 2025. Template from my dear cousin <a href="https://carrie-lin.github.io/">Guying Lin</a>.
+                  Last updated Jun. 2026. Template from my dear cousin <a href="https://carrie-lin.github.io/">Guying Lin</a>.
                 </p>
               </td>
             </tr>
