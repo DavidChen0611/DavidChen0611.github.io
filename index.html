@@ -33,9 +33,38 @@
     display: none;
   }
 
+  .language-switch {
+    max-width: 800px;
+    margin: 14px auto 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .language-switch button {
+    border: 0;
+    background: none;
+    padding: 0 3px;
+    color: #1772d0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .language-switch button.active {
+    color: #000;
+    font-weight: 700;
+  }
+
   @media screen and (max-width: 600px) {
     body {
       margin: 0;
+    }
+
+    .language-switch {
+      margin-top: 10px;
+      padding: 0 20px;
     }
 
     table,
@@ -173,6 +202,13 @@
   </head>
 
   <body>
+    <div class="language-switch" aria-label="Language switcher">
+      <button type="button" data-lang-switch="en">EN</button>
+      /
+      <button type="button" data-lang-switch="zh">中文</button>
+      /
+      <button type="button" data-lang-switch="ja">日本語</button>
+    </div>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -183,14 +219,14 @@
                 <p class="name" style="text-align: center;">
                   Zirui Chen
                 </p>
-                <p>
+                <p data-i18n="bio">
                   I am a first-year Master's student in Medicine at the Graduate School of Medical and Pharmaceutical Sciences, <a href="https://www.chiba-u.ac.jp/e/">Chiba University</a>, where I am supervised by <a href="https://researchmap.jp/yosuke1126">Prof. Yosuke Kurashima</a>.
                   My research interests lie in immunology and mucosal biology. Currently, I am investigating the role of mast cells in allergic progression, aiming to identify novel therapeutic targets for eradicating allergies.
                   <br><br>
                   Previously, I obtained my Bachelor of Medicine (Clinical Medicine) from <a href="https://www.zcmu.edu.cn/">Zhejiang Chinese Medical University</a> in 2025.
                 </p>
                 <p style="text-align:center">
-                  <a href="mailto:zirui0611@gmail.com">Email</a> &nbsp;/&nbsp;
+                  <a href="mailto:zirui0611@gmail.com" data-i18n="link.email">Email</a> &nbsp;/&nbsp;
                   <a href="data/David-CV.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://www.researchgate.net/profile/Zirui-Chen-18">ResearchGate</a> &nbsp;/&nbsp;
                   <a href="https://orcid.org/0009-0002-4290-916X">ORCID</a> &nbsp;/&nbsp;
@@ -206,7 +242,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Education</h2>
+                <h2 data-i18n="heading.education">Education</h2>
               </td>
             </tr>
           </tbody></table>
@@ -220,12 +256,12 @@
               <td style="padding:20px 20px 20px 4px; width:91%; vertical-align:middle">
                 <span style="float:right; font-style: italic; color: #666;">Oct. 2025 - Present</span>
                 <a href="https://www.chiba-u.ac.jp/e/">
-                  <span class="papertitle" style="font-size: 1.1em;">Chiba University</span>
+                  <span class="papertitle" style="font-size: 1.1em;" data-i18n="education.chiba.name">Chiba University</span>
                 </a>
                 <br>
-                <strong style="font-size: 1em;">M.S. student in Medicine</strong>
+                <strong style="font-size: 1em;" data-i18n="education.chiba.degree">M.S. student in Medicine</strong>
                 <br>
-                <div style="margin-top: 4px; font-size: small; color: #333;">
+                <div style="margin-top: 4px; font-size: small; color: #333;" data-i18n="education.chiba.school">
                   Graduate School of Medical and Pharmaceutical Sciences
                 </div>
               </td>
@@ -238,10 +274,10 @@
               <td style="padding:20px 20px 20px 4px; width:91%; vertical-align:middle">
                 <span style="float:right; font-style: italic; color: #666;">Oct. 2020 - Jun. 2025</span>
                 <a href="https://www.zcmu.edu.cn/">
-                  <span class="papertitle" style="font-size: 1.1em;">Zhejiang Chinese Medical University</span>
+                  <span class="papertitle" style="font-size: 1.1em;" data-i18n="education.zcmu.name">Zhejiang Chinese Medical University</span>
                 </a>
                 <br>
-                <strong style="font-size: 1em;">B.Med. in Clinical Medicine</strong>
+                <strong style="font-size: 1em;" data-i18n="education.zcmu.degree">B.Med. in Clinical Medicine</strong>
                 <br>
                 <div style="margin-top: 4px; font-size: small; color: #333;">
                   GPA: 3.8/4.0
@@ -253,8 +289,8 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Research Interests</h2>
-                <p>
+                <h2 data-i18n="heading.research">Research Interests</h2>
+                <p data-i18n="research.text">
                   I am generally interested in <strong>Immunology</strong>, <strong>Mucosal Biology</strong>, and <strong>Pathology</strong>.
                   Most of my research is focused on elucidating the physiological role of <strong>mast cells</strong> in the progression of allergic diseases (Pathogenesis).
                   My goal is to identify novel therapeutic targets for the eradication of allergies.
@@ -266,7 +302,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Experience</h2>
+                <h2 data-i18n="heading.experience">Experience</h2>
               </td>
             </tr>
           </tbody></table>
@@ -280,15 +316,15 @@
               <td style="padding:20px; width:85%; vertical-align:middle">
                 <span style="float:right; font-style: italic; color: #666;">July 2025 – Sept. 2025</span>
                 <a href="https://www.wku.edu.cn/">
-                  <span class="papertitle" style="font-size: 1.1em;">Wenzhou-Kean University</span>
+                  <span class="papertitle" style="font-size: 1.1em;" data-i18n="experience.wku.name">Wenzhou-Kean University</span>
                 </a>
                 <br>
-                <strong style="font-size: 1em;">Research Intern</strong>
+                <strong style="font-size: 1em;" data-i18n="experience.wku.role">Research Intern</strong>
                 <br>
-                <div style="margin-top: 4px; font-size: small; color: #333;">
+                <div style="margin-top: 4px; font-size: small; color: #333;" data-i18n="experience.wku.lab">
                   Wenzhou Municipal Key Laboratory for Applied Biomedical and Biopharmaceutical Informatics
                 </div>
-                <div style="margin-top: 4px; font-size: small;">
+                <div style="margin-top: 4px; font-size: small;" data-i18n="experience.wku.hosts">
                   Hosts: <a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&amp;hl=en">Xuechen Tian</a>, <a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>
                 </div>
               </td>
@@ -298,7 +334,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>News</h2>
+                <h2 data-i18n="heading.news">News</h2>
               </td>
             </tr>
           </tbody></table>
@@ -307,7 +343,7 @@
             <tr>
               <td style="padding:0px 20px; width:85%; vertical-align:top">
                 <span class="news-year-mobile">2026</span>
-                Began intensive laboratory research training at Chiba University, working on animal experiments, sample processing, FACS/FCS analysis, ELISA, histology, data analysis, and group meeting presentations.
+                <span data-i18n="news.2026">Began intensive laboratory research training at Chiba University, working on animal experiments, sample processing, FACS/FCS analysis, ELISA, histology, data analysis, and group meeting presentations.</span>
               </td>
               <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
                 2026
@@ -316,7 +352,7 @@
             <tr>
               <td style="padding:0px 20px; width:85%; vertical-align:top">
                 <span class="news-year-mobile">2025</span>
-                Graduated with a B.Med. in Clinical Medicine from Zhejiang Chinese Medical University and transitioned toward graduate research in Japan.
+                <span data-i18n="news.2025">Graduated with a B.Med. in Clinical Medicine from Zhejiang Chinese Medical University and transitioned toward graduate research in Japan.</span>
               </td>
               <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
                 2025
@@ -325,7 +361,7 @@
             <tr>
               <td style="padding:0px 20px; width:85%; vertical-align:top">
                 <span class="news-year-mobile">2024</span>
-                Completed advanced clinical coursework and internship-related training while preparing for graduate study and biomedical research in Japan.
+                <span data-i18n="news.2024">Completed advanced clinical coursework and internship-related training while preparing for graduate study and biomedical research in Japan.</span>
               </td>
               <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
                 2024
@@ -334,7 +370,7 @@
             <tr>
               <td style="padding:0px 20px; width:85%; vertical-align:top">
                 <span class="news-year-mobile">2020</span>
-                Entered Zhejiang Chinese Medical University and began undergraduate training in Clinical Medicine.
+                <span data-i18n="news.2020">Entered Zhejiang Chinese Medical University and began undergraduate training in Clinical Medicine.</span>
               </td>
               <td style="padding:0px 20px; width:15%; vertical-align:top; text-align:right; font-style: italic; color: #666;">
                 2020
@@ -345,7 +381,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Selected Science Writing</h2>
+                <h2 data-i18n="heading.writing">Selected Science Writing</h2>
               </td>
             </tr>
           </tbody></table>
@@ -353,7 +389,7 @@
           <table class="writing-table" style="width:100%;border:0px;border-spacing:0px 12px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td colspan="2" style="padding:0px 20px; width:100%; vertical-align:middle">
-                <p>
+                <p data-i18n="writing.intro">
                   I have written more than one hundred Chinese popular science articles, totaling over one million words, for my WeChat public account <strong>Cell Kingdom</strong>, now renamed <strong>Beyond Time</strong>.
                 </p>
               </td>
@@ -364,7 +400,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="http://mp.weixin.qq.com/s/3EuGA4yqSn9db2xAe4wVxA"><span class="papertitle writing-title">《Nature》：促炎蛋白IL-11或为延缓衰老全新靶点，可显著延寿四分之一！</span></a>
-                <span class="writing-note">Nature: IL-11 as a new target for slowing aging, with lifespan extended by nearly one quarter.</span>
+                <span class="writing-note" data-i18n="writing.note.1">Nature: IL-11 as a new target for slowing aging, with lifespan extended by nearly one quarter.</span>
               </td>
             </tr>
             <tr>
@@ -373,7 +409,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="http://mp.weixin.qq.com/s/4_oD-agy9dQkS-9Oajcxbg"><span class="papertitle writing-title">世界首例！《Cell》：北大和南开大学团队开发CiPSC-islets移植，使患者成功脱离胰岛素，血糖恢复稳定</span></a>
-                <span class="writing-note">Cell: CiPSC-islet transplantation helps a patient discontinue insulin and restore stable blood glucose.</span>
+                <span class="writing-note" data-i18n="writing.note.2">Cell: CiPSC-islet transplantation helps a patient discontinue insulin and restore stable blood glucose.</span>
               </td>
             </tr>
             <tr>
@@ -382,7 +418,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="http://mp.weixin.qq.com/s/qVFUwwPjnXOr9KBHFCPQlA"><span class="papertitle writing-title">历史首次！科学家追踪移植后的干细胞30年！《Nature》：重建患者血液时基本不发生基因突变，且越早接受移植，存活干细胞越多</span></a>
-                <span class="writing-note">Nature: scientists track transplanted stem cells for 30 years and examine mutation risk after blood reconstruction.</span>
+                <span class="writing-note" data-i18n="writing.note.3">Nature: scientists track transplanted stem cells for 30 years and examine mutation risk after blood reconstruction.</span>
               </td>
             </tr>
             <tr>
@@ -391,7 +427,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="http://mp.weixin.qq.com/s/0x4PS-Ss_py6i7AsrWcBWA"><span class="papertitle writing-title">iPSC来源CAR-T，抗肿瘤Buff翻倍！《StemCell》：哈佛大学通过抑制G9a/GLP，使T细胞更好斗，且生存能力强</span></a>
-                <span class="writing-note">Stem Cell: iPSC-derived CAR-T cells gain stronger antitumor activity after G9a/GLP inhibition.</span>
+                <span class="writing-note" data-i18n="writing.note.4">Stem Cell: iPSC-derived CAR-T cells gain stronger antitumor activity after G9a/GLP inhibition.</span>
               </td>
             </tr>
             <tr>
@@ -400,7 +436,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="http://mp.weixin.qq.com/s/q0gKM8Agzcv4roqftIbM_g"><span class="papertitle writing-title">《柳叶刀》：每10人就有1个糖尿病，超6成未接受任何治疗！过去二十年全球糖尿病发病率翻倍，治疗不平等现象加剧</span></a>
-                <span class="writing-note">The Lancet: global diabetes prevalence has doubled over two decades, with major treatment gaps.</span>
+                <span class="writing-note" data-i18n="writing.note.5">The Lancet: global diabetes prevalence has doubled over two decades, with major treatment gaps.</span>
               </td>
             </tr>
             <tr>
@@ -409,7 +445,7 @@
               </td>
               <td style="padding:0px 20px 0px 0px; width:75%; vertical-align:middle">
                 <a href="https://mp.weixin.qq.com/s/mejB9cePkSiWuKtq9LK_Pg"><span class="papertitle writing-title">《Nature》子刊：新型全自动外泌体检测技术，实现脑癌血检仅需 2 美元， 1 小时内出结果！</span></a>
-                <span class="writing-note">Nature portfolio: an automated exosome test could enable low-cost, one-hour blood testing for brain cancer.</span>
+                <span class="writing-note" data-i18n="writing.note.6">Nature portfolio: an automated exosome test could enable low-cost, one-hour blood testing for brain cancer.</span>
               </td>
             </tr>
           </tbody></table>
@@ -417,7 +453,7 @@
           <table style="width:100%; margin:0 auto; border:0; border-spacing:0;"><tbody>
             <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Miscellanea</h2>
+                <h2 data-i18n="heading.misc">Miscellanea</h2>
               </td>
             </tr>
           </tbody></table>
@@ -425,13 +461,13 @@
           <table class="misc-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px 20px 20px 20px; width:100%; vertical-align:middle">
-                <p>
+                <p data-i18n="misc.1">
                   Beyond my medical training, I have a deep fascination with technology and digital tools. I enjoy exploring electronic devices and software ecosystems—particularly Apple products and macOS, which I have studied extensively in both function and design. 
                 </p>
-                <p>
+                <p data-i18n="misc.2">
                   In my free time, I find relaxation and inspiration through video games, where I appreciate narrative world-building and the interactive dimension of storytelling. 
                 </p>
-                <p>
+                <p data-i18n="misc.3">
                   Outside of academics, I take joy in cycling, driving—especially observing innovations in new energy vehicles—and occasionally experimenting with cooking. These pursuits balance the intensity of clinical work and remind me to remain curious about life beyond the laboratory.
                 </p>
               </td>
@@ -442,7 +478,7 @@
             <tr>
               <td style="padding:0px">
                 <br>
-                <p style="text-align:center;font-size:small;">
+                <p style="text-align:center;font-size:small;" data-i18n="footer">
                   Last updated Jun. 2026. Template from my dear cousin <a href="https://carrie-lin.github.io/">Guying Lin</a>.
                 </p>
               </td>
@@ -451,5 +487,142 @@
         </td>
       </tr>
     </table>
+    <script>
+      const translations = {
+        en: {
+          'bio': 'I am a first-year Master\'s student in Medicine at the Graduate School of Medical and Pharmaceutical Sciences, <a href="https://www.chiba-u.ac.jp/e/">Chiba University</a>, where I am supervised by <a href="https://researchmap.jp/yosuke1126">Prof. Yosuke Kurashima</a>. My research interests lie in immunology and mucosal biology. Currently, I am investigating the role of mast cells in allergic progression, aiming to identify novel therapeutic targets for eradicating allergies.<br><br>Previously, I obtained my Bachelor of Medicine (Clinical Medicine) from <a href="https://www.zcmu.edu.cn/">Zhejiang Chinese Medical University</a> in 2025.',
+          'link.email': 'Email',
+          'heading.education': 'Education',
+          'education.chiba.name': 'Chiba University',
+          'education.chiba.degree': 'M.S. student in Medicine',
+          'education.chiba.school': 'Graduate School of Medical and Pharmaceutical Sciences',
+          'education.zcmu.name': 'Zhejiang Chinese Medical University',
+          'education.zcmu.degree': 'B.Med. in Clinical Medicine',
+          'heading.research': 'Research Interests',
+          'research.text': 'I am generally interested in <strong>Immunology</strong>, <strong>Mucosal Biology</strong>, and <strong>Pathology</strong>. Most of my research is focused on elucidating the physiological role of <strong>mast cells</strong> in the progression of allergic diseases (Pathogenesis). My goal is to identify novel therapeutic targets for the eradication of allergies.',
+          'heading.experience': 'Experience',
+          'experience.wku.name': 'Wenzhou-Kean University',
+          'experience.wku.role': 'Research Intern',
+          'experience.wku.lab': 'Wenzhou Municipal Key Laboratory for Applied Biomedical and Biopharmaceutical Informatics',
+          'experience.wku.hosts': 'Hosts: <a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&amp;hl=en">Xuechen Tian</a>, <a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>',
+          'heading.news': 'News',
+          'news.2026': 'Began intensive laboratory research training at Chiba University, working on animal experiments, sample processing, FACS/FCS analysis, ELISA, histology, data analysis, and group meeting presentations.',
+          'news.2025': 'Graduated with a B.Med. in Clinical Medicine from Zhejiang Chinese Medical University and transitioned toward graduate research in Japan.',
+          'news.2024': 'Completed advanced clinical coursework and internship-related training while preparing for graduate study and biomedical research in Japan.',
+          'news.2020': 'Entered Zhejiang Chinese Medical University and began undergraduate training in Clinical Medicine.',
+          'heading.writing': 'Selected Science Writing',
+          'writing.intro': 'I have written more than one hundred Chinese popular science articles, totaling over one million words, for my WeChat public account <strong>Cell Kingdom</strong>, now renamed <strong>Beyond Time</strong>.',
+          'writing.note.1': 'Nature: IL-11 as a new target for slowing aging, with lifespan extended by nearly one quarter.',
+          'writing.note.2': 'Cell: CiPSC-islet transplantation helps a patient discontinue insulin and restore stable blood glucose.',
+          'writing.note.3': 'Nature: scientists track transplanted stem cells for 30 years and examine mutation risk after blood reconstruction.',
+          'writing.note.4': 'Stem Cell: iPSC-derived CAR-T cells gain stronger antitumor activity after G9a/GLP inhibition.',
+          'writing.note.5': 'The Lancet: global diabetes prevalence has doubled over two decades, with major treatment gaps.',
+          'writing.note.6': 'Nature portfolio: an automated exosome test could enable low-cost, one-hour blood testing for brain cancer.',
+          'heading.misc': 'Miscellanea',
+          'misc.1': 'Beyond my medical training, I have a deep fascination with technology and digital tools. I enjoy exploring electronic devices and software ecosystems, particularly Apple products and macOS, which I have studied extensively in both function and design.',
+          'misc.2': 'In my free time, I find relaxation and inspiration through video games, where I appreciate narrative world-building and the interactive dimension of storytelling.',
+          'misc.3': 'Outside of academics, I take joy in cycling, driving, especially observing innovations in new energy vehicles, and occasionally experimenting with cooking. These pursuits balance the intensity of clinical work and remind me to remain curious about life beyond the laboratory.',
+          'footer': 'Last updated Jun. 2026. Template from my dear cousin <a href="https://carrie-lin.github.io/">Guying Lin</a>.'
+        },
+        zh: {
+          'bio': '我是<a href="https://www.chiba-u.ac.jp/e/">千叶大学</a>医学药学府医学专攻修士一年级学生，师从<a href="https://researchmap.jp/yosuke1126">仓岛洋介教授</a>。我的研究兴趣集中在免疫学和黏膜生物学。目前，我正在研究肥大细胞在过敏进展中的作用，希望寻找根治过敏的新型治疗靶点。<br><br>此前，我于 2025 年获得<a href="https://www.zcmu.edu.cn/">浙江中医药大学</a>临床医学学士学位。',
+          'link.email': '邮件',
+          'heading.education': '教育经历',
+          'education.chiba.name': '千叶大学',
+          'education.chiba.degree': '医学专攻修士课程学生',
+          'education.chiba.school': '医学药学府',
+          'education.zcmu.name': '浙江中医药大学',
+          'education.zcmu.degree': '临床医学学士',
+          'heading.research': '研究兴趣',
+          'research.text': '我主要关注<strong>免疫学</strong>、<strong>黏膜生物学</strong>和<strong>病理学</strong>。当前研究聚焦于阐明<strong>肥大细胞</strong>在过敏性疾病进展中的生理作用（发病机制）。我的目标是寻找能够根治过敏的新型治疗靶点。',
+          'heading.experience': '经历',
+          'experience.wku.name': '温州肯恩大学',
+          'experience.wku.role': '科研实习生',
+          'experience.wku.lab': '温州市应用生物医学与生物医药信息学重点实验室',
+          'experience.wku.hosts': '导师：<a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&amp;hl=en">Xuechen Tian</a>，<a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>',
+          'heading.news': '动态',
+          'news.2026': '开始在千叶大学接受高强度实验室科研训练，工作内容包括动物实验、样本处理、FACS/FCS 分析、ELISA、组织学、数据分析和组会汇报。',
+          'news.2025': '获得浙江中医药大学临床医学学士学位，并逐步转向日本的研究生科研路径。',
+          'news.2024': '完成高强度临床课程和实习相关训练，同时开始准备赴日升学和生物医学研究。',
+          'news.2020': '进入浙江中医药大学，开始临床医学本科阶段学习。',
+          'heading.writing': '科普写作精选',
+          'writing.intro': '我曾为微信公众号 <strong>Cell Kingdom</strong>（现更名为 <strong>Beyond Time</strong>）撰写一百余篇中文科普文章，总字数超过一百万。',
+          'writing.note.1': '解读 IL-11 作为延缓衰老潜在靶点的研究。',
+          'writing.note.2': '解读 CiPSC 胰岛移植帮助患者脱离胰岛素并恢复血糖稳定的研究。',
+          'writing.note.3': '介绍移植后干细胞 30 年追踪研究及其基因突变风险。',
+          'writing.note.4': '解读 iPSC 来源 CAR-T 细胞通过抑制 G9a/GLP 增强抗肿瘤能力的研究。',
+          'writing.note.5': '解读全球糖尿病患病率翻倍及治疗不平等问题。',
+          'writing.note.6': '介绍一种低成本、一小时内完成的自动化外泌体脑癌血检技术。',
+          'heading.misc': '其他',
+          'misc.1': '除医学训练之外，我也对技术和数字工具保持着浓厚兴趣。我喜欢研究电子设备和软件生态，尤其是 Apple 产品与 macOS，并长期关注它们的功能设计与系统体验。',
+          'misc.2': '闲暇时，我会通过电子游戏放松和获取灵感，也很喜欢其中的叙事世界构建与互动式表达。',
+          'misc.3': '学业之外，我喜欢骑行、驾驶，尤其关注新能源汽车的技术创新，也偶尔尝试做饭。这些兴趣平衡了临床与科研训练的强度，也提醒我持续保持对实验室之外生活的好奇。',
+          'footer': '最后更新于 2026 年 6 月。模板来自我的表姐 <a href="https://carrie-lin.github.io/">Guying Lin</a>。'
+        },
+        ja: {
+          'bio': '<a href="https://www.chiba-u.ac.jp/e/">千葉大学</a>大学院医学薬学府医学専攻の修士1年生です。<a href="https://researchmap.jp/yosuke1126">倉島洋介教授</a>のご指導のもとで研究しています。研究関心は免疫学と粘膜生物学にあります。現在は、アレルギー進展における肥満細胞の役割を調べ、アレルギー根治につながる新たな治療標的の同定を目指しています。<br><br>以前は、2025年に<a href="https://www.zcmu.edu.cn/">浙江中医薬大学</a>で臨床医学の学士号を取得しました。',
+          'link.email': 'メール',
+          'heading.education': '学歴',
+          'education.chiba.name': '千葉大学',
+          'education.chiba.degree': '医学専攻 修士課程',
+          'education.chiba.school': '大学院医学薬学府',
+          'education.zcmu.name': '浙江中医薬大学',
+          'education.zcmu.degree': '臨床医学 学士',
+          'heading.research': '研究関心',
+          'research.text': '主な関心は<strong>免疫学</strong>、<strong>粘膜生物学</strong>、<strong>病理学</strong>です。現在の研究は、アレルギー性疾患の進展における<strong>肥満細胞</strong>の生理的役割（病態形成）の解明に焦点を当てています。アレルギー根治につながる新たな治療標的の同定を目指しています。',
+          'heading.experience': '経歴',
+          'experience.wku.name': '温州キーン大学',
+          'experience.wku.role': '研究インターン',
+          'experience.wku.lab': '温州市応用生物医学・生物医薬情報学重点実験室',
+          'experience.wku.hosts': '受入教員：<a href="https://scholar.google.com/citations?user=JznWCkcAAAAJ&amp;hl=en">Xuechen Tian</a>、<a href="https://www.researchgate.net/profile/Kaiyan-Gong-2">Kaiyan Gong</a>',
+          'heading.news': 'ニュース',
+          'news.2026': '千葉大学で本格的な実験室研究トレーニングを開始し、動物実験、サンプル処理、FACS/FCS解析、ELISA、組織学、データ解析、研究室ミーティングでの発表に取り組んでいます。',
+          'news.2025': '浙江中医薬大学で臨床医学の学士号を取得し、日本での大学院研究へと軸足を移しました。',
+          'news.2024': '高度な臨床科目と実習関連のトレーニングを進めながら、日本での進学と生物医学研究に向けた準備を始めました。',
+          'news.2020': '浙江中医薬大学に入学し、臨床医学の学部課程を開始しました。',
+          'heading.writing': 'サイエンスライティング',
+          'writing.intro': 'WeChat公式アカウント <strong>Cell Kingdom</strong>（現在は <strong>Beyond Time</strong>）で、中国語の科学普及記事を100本以上、合計100万字以上執筆しました。',
+          'writing.note.1': 'IL-11を老化抑制の新たな標的として紹介した研究解説。',
+          'writing.note.2': 'CiPSC由来膵島移植により、患者がインスリン離脱と血糖安定を達成した研究解説。',
+          'writing.note.3': '移植後の幹細胞を30年間追跡し、遺伝子変異リスクを検討した研究紹介。',
+          'writing.note.4': 'G9a/GLP阻害によってiPSC由来CAR-T細胞の抗腫瘍活性を高める研究解説。',
+          'writing.note.5': '世界の糖尿病有病率の増加と治療格差を扱った研究解説。',
+          'writing.note.6': '低コストで1時間以内に結果が得られる自動化エクソソーム脳腫瘍血液検査技術の紹介。',
+          'heading.misc': 'その他',
+          'misc.1': '医学のトレーニングに加えて、テクノロジーやデジタルツールにも強い関心があります。電子機器やソフトウェアエコシステム、とくにApple製品とmacOSの機能やデザインを探究することが好きです。',
+          'misc.2': '余暇には、ビデオゲームからリラックスとインスピレーションを得ています。物語世界の構築や、ストーリーテリングのインタラクティブな側面に惹かれています。',
+          'misc.3': '学業以外では、サイクリングやドライブ、特に新エネルギー車の技術革新を観察すること、そして時々料理を試すことを楽しんでいます。これらは臨床・研究生活の強度を和らげ、研究室の外にも好奇心を向け続ける助けになっています。',
+          'footer': '最終更新：2026年6月。テンプレートは従姉の <a href="https://carrie-lin.github.io/">Guying Lin</a> から。'
+        }
+      };
+
+      function applyLanguage(lang) {
+        const selected = translations[lang] ? lang : 'en';
+        document.documentElement.lang = selected === 'zh' ? 'zh-CN' : selected;
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+          const value = translations[selected][element.dataset.i18n];
+          if (value) element.innerHTML = value;
+        });
+        document.querySelectorAll('[data-lang-switch]').forEach((button) => {
+          button.classList.toggle('active', button.dataset.langSwitch === selected);
+        });
+        localStorage.setItem('siteLanguage', selected);
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const storedLanguage = localStorage.getItem('siteLanguage');
+      const initialLanguage = params.get('lang') || storedLanguage || 'en';
+      applyLanguage(initialLanguage);
+
+      document.querySelectorAll('[data-lang-switch]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const nextLanguage = button.dataset.langSwitch;
+          const nextUrl = new URL(window.location.href);
+          nextUrl.searchParams.set('lang', nextLanguage);
+          history.replaceState(null, '', nextUrl);
+          applyLanguage(nextLanguage);
+        });
+      });
+    </script>
   </body>
 </html>
